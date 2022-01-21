@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 class PlaybackPage extends StatefulWidget {
   const PlaybackPage({Key? key}) : super(key: key);
@@ -20,7 +18,7 @@ class _PlaybackPageState extends State<PlaybackPage> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/images/wp6037876.png"),
+              image: AssetImage("assets/images/(1).jpg"),
               fit: BoxFit.cover,
               colorFilter: ColorFilter.mode(
                 Colors.black.withOpacity(0.6),
@@ -31,7 +29,9 @@ class _PlaybackPageState extends State<PlaybackPage> {
           children: [
             AppBar(
               leading:
-                  IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+                  IconButton(onPressed: () {
+                    Navigator.of(context).pop();
+                  }, icon: Icon(Icons.arrow_back)),
               centerTitle: true,
               elevation: 0.0,
               backgroundColor: Colors.transparent,
@@ -39,8 +39,9 @@ class _PlaybackPageState extends State<PlaybackPage> {
               actions: [
                 Padding(
                   padding: const EdgeInsets.only(right: 10.0),
-                  child: IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
-                )
+                  child:
+                  IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
+                ),
               ],
             ),
             Expanded(
@@ -77,7 +78,7 @@ class _PlaybackPageState extends State<PlaybackPage> {
                         ),
                       ),
                       Container(
-                        width: 180,
+                        width: 150,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
@@ -96,7 +97,7 @@ class _PlaybackPageState extends State<PlaybackPage> {
                       Column(
                         children: [
                           Container(
-                            width: 390,
+                            width: 360,
                             child: Slider(
                               thumbColor: Colors.white,
                               activeColor: Colors.white,

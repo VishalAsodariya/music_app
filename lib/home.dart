@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:music_app/song_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -37,58 +38,206 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          margin: EdgeInsets.all(15),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
+        child: SingleChildScrollView(
+          child: Container(
+            // margin: EdgeInsets.all(15),
+            child: Column(
+              children: [
+                Container(
+                  margin:
+                      EdgeInsets.only(left: 5, top: 20, right: 15, bottom: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: [
+                          Text(
+                            "Hi, Vishal!",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 35),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10.0),
+                            child: Text(
+                              "What would you read today?",
+                            ),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Colors.grey,
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 15, right: 15, bottom: 10),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Enter a search term',
+                      prefixIcon: Icon(Icons.search_rounded),
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 15, right: 12),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Hi, Vishal!",
+                        "Reading Now",
                         style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 35),
+                            fontSize: 30, fontWeight: FontWeight.bold),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 12),
-                        child: Text(
-                          "What would you read today?",
-                        ),
-                      ),
+                      TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            "See all",
+                            style: TextStyle(fontSize: 20),
+                          ))
                     ],
                   ),
-                  Column(
+                ),
+                SizedBox(
+                  height: 300,
+                  child: ListView.builder(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      physics: ClampingScrollPhysics(),
+                      itemCount: 1,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          padding: EdgeInsets.only(left: 10, right: 10),
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  SongCard(
+                                    songName: "Hobbit",
+                                    singar: "J.R.R. Tolkin",
+                                    time: "8h30m",
+                                    catagory: "Fantasy",
+                                    imagePath: "assets/images/1.jpg",
+                                  ),
+                                  SongCard(
+                                    songName: "The Great Getsby",
+                                    singar: "F.S. Fitzgerald",
+                                    time: "6h20m",
+                                    catagory: "Roman",
+                                    imagePath: "assets/images/3.jpg",
+                                  ),
+                                  SongCard(
+                                    songName: "Hobbit",
+                                    singar: "J.R.R. Tolkin",
+                                    time: "5h00m",
+                                    catagory: "Fantasy",
+                                    imagePath: "assets/images/2.jpg",
+                                  ),
+                                  SongCard(
+                                    songName: "Autumn in Rome",
+                                    singar: "Peggy Lee",
+                                    time: "7h10m",
+                                    catagory: "Roman",
+                                    imagePath: "assets/images/3.jpg",
+                                  ),
+                                  SongCard(
+                                    songName: "Hobbit",
+                                    singar: "J.R.R. Tolkin",
+                                    time: "6h15m",
+                                    catagory: "Fantasy",
+                                    imagePath: "assets/images/2.jpg",
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        );
+                      }),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 15, right: 12),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      CircleAvatar(
-                        backgroundImage: NetworkImage(
-                            "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"),
+                      Text(
+                        "Special For You",
+                        style: TextStyle(
+                            fontSize: 30, fontWeight: FontWeight.bold),
                       ),
-                    ],
-                  )
-                ],
-              ),
-              Row(
-                children: [
-                  Column(
-                    children: [
-                      Container(
-                        child:
-                          Text("Reading now")
-                        // TextField(
-                        //   decoration: InputDecoration(
-                        //     hintText: 'Enter a search term',
-                        //   ),
-                        // ),
-                      ),
+                      TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            "See all",
+                            style: TextStyle(fontSize: 20),
+                          ))
                     ],
                   ),
-                ],
-              )
-            ],
+                ),
+                SizedBox(
+                  height: 300,
+                  child: ListView.builder(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      physics: ClampingScrollPhysics(),
+                      itemCount: 1,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          padding: EdgeInsets.only(left: 10, right: 10),
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  SongCard(
+                                    songName: "Hobbit",
+                                    singar: "J.R.R. Tolkin",
+                                    time: "8h30m",
+                                    catagory: "Fantasy",
+                                    imagePath: "assets/images/1.jpg",
+                                  ),
+                                  SongCard(
+                                    songName: "The Great Getsby",
+                                    singar: "F.S. Fitzgerald",
+                                    time: "6h20m",
+                                    catagory: "Roman",
+                                    imagePath: "assets/images/3.jpg",
+                                  ),
+                                  SongCard(
+                                    songName: "Hobbit",
+                                    singar: "J.R.R. Tolkin",
+                                    time: "5h00m",
+                                    catagory: "Fantasy",
+                                    imagePath: "assets/images/2.jpg",
+                                  ),
+                                  SongCard(
+                                    songName: "Heart of Rome",
+                                    singar: "Elvis Presley",
+                                    time: "7h10m",
+                                    catagory: "Roman",
+                                    imagePath: "assets/images/3.jpg",
+                                  ),
+                                  SongCard(
+                                    songName: "Hobbit",
+                                    singar: "J.R.R. Tolkin",
+                                    time: "6h15m",
+                                    catagory: "Fantasy",
+                                    imagePath: "assets/images/2.jpg",
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        );
+                      }),
+                )
+              ],
+            ),
           ),
         ),
       ),

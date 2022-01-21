@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_app/home.dart';
 import 'package:music_app/subject_card.dart';
 
 class Onbording extends StatefulWidget {
@@ -41,31 +42,31 @@ class _OnbordingState extends State<Onbording> {
               ],
             ),
             Container(
-              padding: EdgeInsets.only(left: 25, top: 35),
+              padding: EdgeInsets.only(left: 8, top: 20),
               child: Row(
                 children: [
                   Column(
                     children: [
                       SubjectCard(icon: Icons.music_note, subjectName: "Roman"),
-                      SubjectCard(icon: Icons.music_note, subjectName: "Roman"),
-                      SubjectCard(icon: Icons.music_note, subjectName: "Roman"),
+                      SubjectCard(icon: Icons.location_on_outlined, subjectName: "Action"),
+                      SubjectCard(icon: Icons.anchor_rounded, subjectName: "Horror"),
                     ],
                   ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 40),
                     child: Column(
                       children: [
-                        SubjectCard(icon: Icons.music_note, subjectName: "Roman"),
-                        SubjectCard(icon: Icons.music_note, subjectName: "Roman"),
-                        SubjectCard(icon: Icons.music_note, subjectName: "Roman"),
+                        SubjectCard(icon: Icons.anchor_rounded, subjectName: "Jorney"),
+                        SubjectCard(icon: Icons.location_city, subjectName: "Fantasy"),
+                        SubjectCard(icon: Icons.science, subjectName: "Science"),
                       ],
                     ),
                   ),
                   Column(
                     children: [
-                      SubjectCard(icon: Icons.music_note, subjectName: "Roman"),
-                      SubjectCard(icon: Icons.music_note, subjectName: "Roman"),
-                      SubjectCard(icon: Icons.music_note, subjectName: "Roman"),
+                      SubjectCard(icon: Icons.indeterminate_check_box, subjectName: "Detective"),
+                      SubjectCard(icon: Icons.account_tree, subjectName: "Western"),
+                      SubjectCard(icon: Icons.movie, subjectName: "Drama"),
                     ],
                   ),
                 ],
@@ -78,7 +79,12 @@ class _OnbordingState extends State<Onbording> {
         color: Colors.grey[200],
         padding: EdgeInsets.all(8),
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          },
           child: const Text(
             "Continue",
             style: TextStyle(fontSize: 20),
